@@ -10,7 +10,7 @@ public class FVCalc {
 		int n = Integer.parseInt(args[2]);
 
 		// futureValue is calculated within the 2nd print row as i saw no inherent benefit in assigning the calculation to a var before printing
-		System.out.println("After " + n + " years, $" + currentValue + " saved at " + rate + 
+		System.out.println("After " + n + " years, a $" + currentValue + " saved at " + rate + 
 							"% will yield " + "$" + (int) (currentValue * Math.pow(rate/100 + 1,(double) n)));
 	}
 }

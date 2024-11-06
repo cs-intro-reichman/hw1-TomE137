@@ -5,15 +5,16 @@ public class TimeFormat {
 
 		int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
-		
-		// checkRange will be 1 if hours < 12 and 0 if else
-		int checkRange = (hours/12) * (10 * (12-hours) /  (10 * (hours-12) - 1)) * -1;
-		
-		// uses checkRange's value to ignore the calculation for hours not within current range 
-		int formatedHours = hours * (1 - checkRange) + (hours - 12) * checkRange;
+		String addedZero = "";
 
-		// uses checkRange to only use relevant part of the meridian string
-		String meridiem = "AMPM";
-		System.out.println(formatedHours + ":" + minutes + " " + meridiem.substring(checkRange * 2, 2 + checkRange*2));
+		if (minutes<10) {
+			addedZero = "0";			
+		}
+		if (hours < 12) {
+			System.out.println(hours + ":" + addedZero + minutes + " AM");
+		}
+		else {
+			System.out.println(hours-12 + ":" + addedZero + minutes + " PM");
+		}
 	}
 }
